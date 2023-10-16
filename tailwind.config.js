@@ -4,8 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        custom: ['Montserrat', 'sans-serif'],
+        spartan: ['Spartan','sans-serif'],
+      },
+    },
   },
-  plugins: [],
+  plugins: [],
 }
 

@@ -1,0 +1,60 @@
+/* MedicineUpload.css */
+.medicine-upload-container {
+    max-width: 600px;
+    margin: 60px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .name{
+    font-weight: normal;
+  }
+  .medicine-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin: 10px 0;
+    width: 100%;
+  }
+  
+  label {
+    font-weight: normal;
+    font-size: 25px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+  }
+
+  
+  
+  button {
+    background-color: #4bccd3;
+    background-color: #4bccd3;
+    color: #fff;
+    padding: 10px 20px;
+    width: 550px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    
+    background-color: #91dbcb;
+  }
+
+
+  .cuboid
+  {
+    margin: 0px;
+    background-color: #4bccd3;
+  }
