@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import MediShare from '../Components/MediShare';
+import Medishare from '../Components/Medishare';
 
 function MedicineUpload() {
   const [medicineName, setMedicineName] = useState('');
@@ -22,7 +22,7 @@ function MedicineUpload() {
 
   return (
     <div className='h-screen '>
-      <MediShare/>
+      <Medishare/>
       <div className="flex flex-wrap overflow-hidden">
 
         <div className="w-full sm:w-1/2 px-4 sm:px-24 py-10 flex flex-col justify-center">

@@ -1,6 +1,6 @@
 import React from 'react'
 import NgoIntro from '../Components/NgoIntro'
-import MediShare from '../Components/MediShare'
+import Medishare from '../Components/Medishare'
 
 const SearchNgo = () => {
   return (
@@ -8,7 +8,7 @@ const SearchNgo = () => {
       <div className='h-screen'>
 
         <div className='h-2/5 bg-[#B9F3FC] flex flex-col'>
-          <MediShare/>
+         <Medishare/>
           <div className='text-4xl px-4 sm:px-40 py-2 sm:py-10 mt-auto font-custom font-semibold'>Search for NGO's near-by</div>
 
         </div>
