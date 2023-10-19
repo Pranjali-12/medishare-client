@@ -58,7 +58,7 @@ const SignInLeft = () => {
               </div>
             </div>
             <div className="text-sm">
-                  <a href="#" className="font-semibold text-teal-700 hover:text-teal-500">
+                  <a href="#" className="font-semibold hover:text-teal-800 text-teal-600">
                     Forgot password?
                   </a>
                 </div>
