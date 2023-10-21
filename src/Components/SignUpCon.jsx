@@ -111,7 +111,14 @@ const SignUpCon = () => {
                     </div>
                   </div>
                 </div>
-                
+                <div className='mt-2'>
+                <label className="flex block w-full text-xs font-bold  text-gray-500 outline-none"
+>
+  <input type="checkbox" /> 
+  <h6 className='mx-2'> By signing up, you agree to our Terms & Conditions</h6>
+</label>
+</div>
+
                 <div>
                   <button
                     type="submit"

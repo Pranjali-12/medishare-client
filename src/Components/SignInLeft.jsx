@@ -57,10 +57,20 @@ const SignInLeft = () => {
                 />
               </div>
             </div>
-            <div className="text-sm">
-                  <a href="#" className="font-semibold hover:text-teal-800 text-teal-600">
+            <div className="text-sm flex justify-between">
+            <div className=''>
+                <label className="flex block w-full text-sm font-bold  text-gray-500 outline-none"
+>
+  <input type="checkbox" /> 
+  <h6 className='mx-2'> Remember me</h6>
+</label>
+</div>
+
+                  <a href="#" className="text-sm font-bold hover:text-teal-800 text-teal-600">
                     Forgot password?
                   </a>
+
+
                 </div>
             <div>
               <button
@@ -88,3 +98,5 @@ const SignInLeft = () => {
 }
 
 export default SignInLeft
+
+
