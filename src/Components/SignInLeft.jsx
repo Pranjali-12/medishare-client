@@ -4,8 +4,8 @@ import '../styles/SignInLeft.css'
 const SignInLeft = () => {
   return (
     <div className='flex flex-row flex-wrap ' >
-        <div className='sm:w-1/2  py-20 px-12 '  style={{backgroundColor:"#1CB5BD"}}>
-           <img src={require("../assets/signup.png")} className='sign-img sm:w-11/12 my-12'></img>
+        <div className='sm:w-1/2   '  style={{backgroundColor:"#1CB5BD"}}>
+           <img src={require("../assets/signup.png")} className='sign-img '></img>
         </div>
 
 
