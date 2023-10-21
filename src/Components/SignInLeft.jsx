@@ -33,7 +33,7 @@ const SignInLeft = () => {
                   autoComplete="email"
                   placeholder='Enter Your Address'
                   required
-                  className="block w-full text-lg font-semibold border-b  py-1.5 text-gray-900   placeholder:text-gray-400 outline-none" style={{borderColor:"#98B3D6"}}
+                  className="block w-full text-sm font-semibold border-b  py-1.5 text-gray-900   placeholder:text-gray-400 outline-none" style={{borderColor:"#98B3D6"}}
                 />
               </div>
             </div>
@@ -53,7 +53,7 @@ const SignInLeft = () => {
                   autoComplete="current-password"
                   placeholder='********'
                   required
-                  className="block w-full text-lg font-semibold  border-b  py-1.5 text-gray-900   placeholder:text-gray-400 outline-none" style={{borderColor:"#98B3D6"}}
+                  className="block w-full text-sm font-semibold  border-b  py-1.5 text-gray-900   placeholder:text-gray-400 outline-none" style={{borderColor:"#98B3D6"}}
                 />
               </div>
             </div>
@@ -72,9 +72,9 @@ const SignInLeft = () => {
             </div>
           </form>
 
-          <p className="mt-10 text-center font-bold py-4 text-xl text-gray-500">
+          <p className="mt-2 text-center font-bold py-4 text-sm text-gray-500">
             New member?{' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" style={{color:"#1CB5BD"}}>
+            <a href="/signup" className="font-semibold leading-6  cursor-pointer" style={{ color: "#1CB5BD" }}>
               Sign Up
             </a>
           </p>

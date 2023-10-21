@@ -254,7 +254,7 @@ const SignUpCon = () => {
               <p className="mt-2 text-center font-bold py-4 text-sm text-gray-500">
                 Already a member?{' '}
              
-                <a  className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer" style={{ color: "#1CB5BD" }}>
+                <a href='/signin' className="font-semibold leading-6  cursor-pointer" style={{ color: "#1CB5BD" }}>
                   Login
                 </a>
                
