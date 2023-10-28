@@ -3,11 +3,11 @@ import '../styles/HomeUpper.css'
 
 const HomeUpper = () => {
   return (
-    <div style={{ width: '85%', margin: '0 auto' }}>
+    <div style={{ width: '90%', margin: '0 auto' }}>
       <div className='flex flex-wrap'>
         {/* Left */}
-        <div className='w-1/2 px-4'>
-          <h1 className='text-5xl	 font-extrabold p-8 pt-16 pe-12' style={{ lineHeight: "4.2rem" }}>Healing yourself is connected with <span className='parallelogram m-0 text-5xl' >healing</span> others</h1>
+        <div className='home-left  px-4'>
+          <h1 className='home-quote  font-extrabold ' >Healing yourself is connected with <span className='parallelogram m-0 ' >healing</span> others</h1>
           <div className='ps-8'>
             <div className="m-3 w-10/12">
               <div class="relative mb-4 flex  flex-wrap items-stretch border-2  h-12 pl-4 border-solid border-teal-500 rounded-md"
@@ -42,7 +42,9 @@ const HomeUpper = () => {
 
         </div>
         {/* Right */}
-        <img className="pb-4 pt-4" src={require("../assets/Home_Image.png")} style={{ width: "36rem" }} />
+        <div className='image-cont'>
+        <img className="pb-4 pt-4 home-img" src={require("../assets/Home_Image.png")}  />
+        </div>
         <div>
         </div>
       </div>
