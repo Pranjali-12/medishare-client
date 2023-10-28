@@ -1,7 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/SignInLeft.css'
+import { useNavigate } from 'react-router-dom'
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 const SignInLeft = () => {
+  const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('');
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  async function login(e) {
+    e.preventDefault();
+    const res = await fetch("http://localhost:2000/donor/login", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,password
+      })
+    })
+    const data = await res.json()
+    localStorage.setItem('authtoken', data.token)
+
+    if (res.status === 200) {
+      alert("Login Successfully 💫")
+      navigate("/searchngo", { replace: true });
+    }
+    else if(email=="" || password==""){
+      alert("Plz Enter Credentials !!")
+    }
+    else{
+      alert("Enter Correct Credentials !! ")
+    }
+
+    console.log(data);
+
+  }
+
   return (
     <div className='flex flex-row flex-wrap ' >
         <div className='sm:w-1/2 sm:h-[90vh]'  style={{backgroundColor:"#1CB5BD"}}>
@@ -34,6 +75,7 @@ const SignInLeft = () => {
                   placeholder='Enter Your Email Address'
                   required
                   className="block w-full text-lg font-semibold border-b  py-1.5 text-gray-900   placeholder:text-gray-400 outline-none" style={{borderColor:"#98B3D6"}}
+                  value={email} onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -46,15 +88,29 @@ const SignInLeft = () => {
                
               </div>
               <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  placeholder='********'
-                  required
-                  className="block w-full text-lg font-semibold  border-b  py-1.5 text-gray-900   placeholder:text-gray-400 outline-none" style={{borderColor:"#98B3D6"}}
-                />
+              <div className="relative">
+                      <input
+                        id="password"
+                        name="password"
+                        type={showPassword ? "text" : "password"} // Toggle between "text" and "password"
+                        autoComplete="current-password"
+                        placeholder="Enter Password"
+                        required
+                        className="block w-full text-lg font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
+                        style={{ borderColor: "#98B3D6" }}
+                        value={password} onChange={(e) => setPassword(e.target.value)}
+                      />
+                      <span
+                        className="absolute right-3 top-2 cursor-pointer"
+                        onClick={togglePasswordVisibility}
+                      >
+                        {showPassword ? (
+                          <FaEyeSlash></FaEyeSlash>
+                        ) : (
+                          <FaEye></FaEye>
+                        )}
+                      </span>
+                    </div>
               </div>
             </div>
             <div className="text-lg">
@@ -65,6 +121,7 @@ const SignInLeft = () => {
             <div>
               <button
                 type="submit"
+                onClick={login}
                 className="flex w-full justify-center rounded-full  px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " style={{backgroundColor:"#1CB5BD"}}
               >
                 Login

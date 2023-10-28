@@ -4,7 +4,7 @@ import MediShare from '../Components/MediShare'
 import axios from 'axios'
 
 const SearchNgo = () => {
-
+  
   const [receiver,setReceiver]=useState('');
   const [searchQuery, setSearchQuery] = useState('');
 

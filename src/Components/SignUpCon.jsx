@@ -1,20 +1,49 @@
 import "../styles/SignInLeft.css";
 import React, { useState } from "react";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
 const SignUpCon = () => {
+
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
-  const [fname,setFname]=useState('');
-  const [lname,setLname]=useState('');
-  const [password,setPassword]=useState('');
-  const [email,setEmail]=useState('');
+  const [firstName, setFname] = useState('');
+  const [lastName, setLname] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+
+  const location = "Thane"
+  const donorType = "Individual"
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  console.log()
+  async function register(e) {
+    e.preventDefault();
+    const res = await fetch("http://localhost:2000/donor/signup", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        firstName, lastName, email, password, location, donorType
+      })
+    })
+
+    const data = await res.json()
+    if (res.status === 200) {
+      alert("Registered Successfully 💫")
+      navigate("/signin", { replace: true });
+    }
+    else{
+      alert("Oops !! Something Went Wrong ")
+    }
+
+    console.log(data);
+
+  }
 
   return (
     <div>
@@ -47,18 +76,19 @@ const SignUpCon = () => {
                     </label>
                     <div className="mt-2 me-5">
                       <input
-                        id="fname"
-                        name="fname"
+                        id="firstName"
+                        name="firstName"
                         type="text"
-                        autoComplete="fname"
+                        autoComplete="firstName"
                         placeholder="Enter First Name"
                         required
                         className="block w-full text-lg font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
                         style={{ borderColor: "#98B3D6" }}
-                        value="fname"
+                        value={firstName} onChange={(e) => setFname(e.target.value)}
                       />
                     </div>
                   </div>
+
                   <div>
                     <label
                       htmlFor="email"
@@ -68,18 +98,20 @@ const SignUpCon = () => {
                     </label>
                     <div className="mt-2">
                       <input
-                        id="lname"
-                        name="lname"
+                        id="lastName"
+                        name="lastName"
                         type="text"
-                        autoComplete="lname"
+                        autoComplete="lastName"
                         placeholder="Enter Last Name"
                         required
                         className="block w-full text-lg font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
                         style={{ borderColor: "#98B3D6" }}
+                        value={lastName} onChange={(e) => setLname(e.target.value)}
                       />
                     </div>
                   </div>
                 </div>
+
                 <div>
                   <label
                     htmlFor="email"
@@ -97,9 +129,12 @@ const SignUpCon = () => {
                       required
                       className="block w-full text-lg font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
                       style={{ borderColor: "#98B3D6" }}
+                      value={email} onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                 </div>
+
+
                 <div>
                   <div className="flex items-center justify-between">
                     <label
@@ -120,6 +155,7 @@ const SignUpCon = () => {
                         required
                         className="block w-full text-lg font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
                         style={{ borderColor: "#98B3D6" }}
+                        value={password} onChange={(e) => setPassword(e.target.value)}
                       />
                       <span
                         className="absolute right-3 top-2 cursor-pointer"
@@ -135,7 +171,7 @@ const SignUpCon = () => {
                   </div>
                 </div>
                 <div className="mt-2">
-                  <label className="flex block w-full text-xs font-bold  text-gray-500 outline-none">
+                  <label className="flex w-full text-xs font-bold  text-gray-500 outline-none">
                     <input type="checkbox" />
                     <h6 className="mx-2">
                       {" "}
@@ -145,13 +181,14 @@ const SignUpCon = () => {
                 </div>
 
                 <div>
-                <Link to={"/searchngo"} ><button
+                  <button
                     type="submit"
                     className="flex w-full justify-center rounded-full px-3 py-1.5 text-lg font-bold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                     style={{ backgroundColor: "#1CB5BD" }}
+                    onClick={register}
                   >
                     Sign Up
-                  </button></Link>
+                  </button>
                 </div>
               </form>
 
