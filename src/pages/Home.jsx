@@ -4,10 +4,11 @@ import HomeUpper from '../Components/HomeUpper'
 import Navbar from '../Components/Navbar'
 import MediShare from '../Components/MediShare'
 
+
 const Home = () => {
   return (
     <div>
-    <MediShare/>
+      <MediShare/>
       <HomeUpper/>
       <ServiceBox/>
     </div>
