@@ -4,7 +4,7 @@ import '../styles/SignInLeft.css'
 const SignInLeft = () => {
   return (
     <div className='flex flex-row flex-wrap ' >
-        <div className='sm:w-1/2  py-20 px-12 '  style={{backgroundColor:"#1CB5BD"}}>
+        <div className='sm:w-1/2 sm:h-[90vh]'  style={{backgroundColor:"#1CB5BD"}}>
            <img src={require("../assets/signup.png")} className='sign-img sm:w-11/12 my-12'></img>
         </div>
 
@@ -22,7 +22,7 @@ const SignInLeft = () => {
           <form className="space-y-6" action="#" method="POST">
           
             <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+              <label htmlFor="email" className="block text-lg font-semibold leading-6 text-gray-900">
                 Email address
               </label>
               <div className="mt-2">
@@ -31,7 +31,7 @@ const SignInLeft = () => {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  placeholder='Enter Your Address'
+                  placeholder='Enter Your Email Address'
                   required
                   className="block w-full text-lg font-semibold border-b  py-1.5 text-gray-900   placeholder:text-gray-400 outline-none" style={{borderColor:"#98B3D6"}}
                 />
@@ -40,7 +40,7 @@ const SignInLeft = () => {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="password" className="block text-lg font-semibold leading-6 text-gray-900">
                   Password
                 </label>
                
@@ -57,7 +57,7 @@ const SignInLeft = () => {
                 />
               </div>
             </div>
-            <div className="text-sm">
+            <div className="text-lg">
                   <a href="#" className="font-semibold hover:text-teal-800 text-teal-600">
                     Forgot password?
                   </a>
@@ -65,16 +65,16 @@ const SignInLeft = () => {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-full  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " style={{backgroundColor:"#1CB5BD"}}
+                className="flex w-full justify-center rounded-full  px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " style={{backgroundColor:"#1CB5BD"}}
               >
                 Login
               </button>
             </div>
           </form>
 
-          <p className="mt-10 text-center font-bold py-4 text-xl text-gray-500">
+          <p className="mt-2 text-center font-bold py-4 text-sm text-gray-500">
             New member?{' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" style={{color:"#1CB5BD"}}>
+            <a href="/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" style={{color:"#1CB5BD"}}>
               Sign Up
             </a>
           </p>

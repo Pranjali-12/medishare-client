@@ -13,7 +13,7 @@ const ServiceBox = () => {
 
 <SubServiceBox
   s={require("../assets/approval.png")}
-  head="Doctor’s Approval"
+  head="Admin’s Approval"
   content="Doctor’s approval on every medicine. 
 Consultation available as well "
 ></SubServiceBox>
