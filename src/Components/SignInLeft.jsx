@@ -1,5 +1,5 @@
-import React from "react";
-import "../styles/SignInLeft.css";
+import React from 'react'
+import '../styles/SignInLeft.css'
 
 const SignInLeft = () => {
   return (
@@ -8,13 +8,15 @@ const SignInLeft = () => {
            <img src={require("../assets/signup.png")} className='sign-img sm:w-11/12 my-12'></img>
         </div>
 
-      <div className="sm:w-1/2 flex justify-center">
+
+        <div className='sm:w-1/2 flex justify-center'>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className="mt-5 text-left text-5xl font-bold leading-9 tracking-tight text-gray-900">
-              Welcome
-            </h2>
-          </div>
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+          
+          <h2 className="mt-5 text-left text-5xl font-bold leading-9 tracking-tight text-gray-900">
+            Welcome
+          </h2>
+        </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
@@ -78,9 +80,11 @@ const SignInLeft = () => {
           </p>
         </div>
       </div>
-    </div>
-    </div>
-  );
-};
+        </div>
 
-export default SignInLeft;
+
+    </div>
+  )
+}
+
+export default SignInLeft
