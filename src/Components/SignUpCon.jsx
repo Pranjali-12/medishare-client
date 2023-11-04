@@ -2,6 +2,7 @@ import "../styles/SignInLeft.css";
 import React, { useState } from "react";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast';
 
 const SignUpCon = () => {
 
@@ -34,11 +35,11 @@ const SignUpCon = () => {
 
     const data = await res.json()
     if (res.status === 200) {
-      alert("Registered Successfully 💫")
+      toast.success("Registered Successfully 💫")
       navigate("/signin", { replace: true });
     }
     else{
-      alert("Oops !! Something Went Wrong ")
+      toast.error("Oops !! Something Went Wrong ")
     }
 
     console.log(data);

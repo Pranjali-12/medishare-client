@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../styles/SignInLeft.css'
 import { useNavigate } from 'react-router-dom'
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import toast from 'react-hot-toast';
 
 const SignInLeft = () => {
   const navigate = useNavigate();
@@ -29,14 +30,14 @@ const SignInLeft = () => {
     localStorage.setItem('authtoken', data.token)
 
     if (res.status === 200) {
-      alert("Login Successfully 💫")
+      toast.success('Login Successful !')
       navigate("/searchngo", { replace: true });
     }
     else if(email=="" || password==""){
-      alert("Plz Enter Credentials !!")
+      toast.error("Plz Enter Credentials !!")
     }
     else{
-      alert("Enter Correct Credentials !! ")
+      toast.error("Enter Correct Credentials !! ")
     }
 
     console.log(data);
@@ -44,6 +45,8 @@ const SignInLeft = () => {
   }
 
   return (
+    <>
+    
     <div className='flex flex-row flex-wrap ' >
         <div className='sm:w-1/2 sm:h-[90vh]'  style={{backgroundColor:"#1CB5BD"}}>
            <img src={require("../assets/signup.png")} className='sign-img sm:w-11/12 my-12'></img>
@@ -141,6 +144,7 @@ const SignInLeft = () => {
 
 
     </div>
+    </>
   )
 }
 
