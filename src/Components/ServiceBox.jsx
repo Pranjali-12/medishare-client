@@ -4,7 +4,7 @@ import SubServiceBox from "./SubServiceBox";
 
 const ServiceBox = () => {
   return (
-    <div className="mt-8 flex flex-wrap justify-center" >
+    <div className="flex flex-wrap justify-center" >
      <SubServiceBox
   s={require("../assets/donate.png")}
   head="Donate Medicine"
@@ -13,7 +13,7 @@ const ServiceBox = () => {
 
 <SubServiceBox
   s={require("../assets/approval.png")}
-  head="Doctor’s Approval"
+  head="Admin’s Approval"
   content="Doctor’s approval on every medicine. 
 Consultation available as well "
 ></SubServiceBox>

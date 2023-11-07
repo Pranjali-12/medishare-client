@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Medishare from '../Components/Medishare';
+import MediShare from '../Components/MediShare';
+import addDays from 'date-fns/addDays';
+import subDays from 'date-fns/subDays';
+
 
 function MedicineUpload() {
+  const minDate = addDays(new Date(), 1);
+  const maxDate = subDays(new Date(), 1);
+
   const [medicineName, setMedicineName] = useState('');
   const [manufactureDate, setManufactureDate] = useState(null); // Use null for date state
   const [expiryDate, setExpiryDate] = useState(null); // Use null for date state
@@ -22,7 +28,7 @@ function MedicineUpload() {
 
   return (
     <div className='h-screen '>
-      <Medishare/>
+      <MediShare/>
       <div className="flex flex-wrap overflow-hidden">
 
         <div className="w-full sm:w-1/2 px-4 sm:px-24 py-10 flex flex-col justify-center">
@@ -38,6 +44,7 @@ function MedicineUpload() {
                   onChange={(e) => setMedicineName(e.target.value)}
                   required
                   placeholder='Enter Medicine Name'
+                  
                 />
               </div>
 
@@ -51,6 +58,7 @@ function MedicineUpload() {
                   onChange={(date) => setManufactureDate(date)}
                   required
                   placeholderText='Select'
+                  maxDate={maxDate}
                 />
               </div>
             </div>
@@ -63,6 +71,7 @@ function MedicineUpload() {
                   onChange={(date) => setExpiryDate(date)}
                   required
                   placeholderText='Select'
+                  minDate={minDate}
                 />
               </div>
             </div>
