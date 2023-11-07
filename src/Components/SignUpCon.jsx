@@ -23,12 +23,12 @@ const SignUpCon = () => {
         <div className="sm:w-1/2 flex justify-center">
           <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-              <h2 className="mt-5 text-left text-5xl font-bold leading-9 tracking-tight text-gray-900">
+              <h2 className="mt-0 text-left text-5xl font-bold leading-9 tracking-tight text-gray-900">
                 Welcome
               </h2>
             </div>
 
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
               <form className="space-y-6" action="#" method="POST">
                 <div className="flex sm:flex flex:nowrap sm:wrap">
                   <div>
@@ -126,6 +126,27 @@ const SignUpCon = () => {
                     </div>
                   </div>
                 </div>
+                <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-bold leading-6 text-gray-900"
+                    >
+                      Location
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        id="location"
+                        name="location"
+                        type="text"
+                        autoComplete="location"
+                        placeholder="Enter Location"
+                        required
+                        className="block w-full text-sm font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
+                        style={{ borderColor: "#98B3D6" }}
+                      />
+                    </div>
+                  </div>
+                
                 <div className="mt-2">
                   <label className="flex block w-full text-xs font-bold  text-gray-500 outline-none">
                     <input type="checkbox" />
@@ -135,7 +156,7 @@ const SignUpCon = () => {
                     </h6>
                   </label>
                 </div>
-
+                
                 <div>
                   <button
                     type="submit"
