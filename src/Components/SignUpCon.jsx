@@ -1,11 +1,11 @@
-import "../styles/SignInLeft.css";
+
 import React, { useState } from "react";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import '../styles/SignUpCon.css'
 
 const SignUpCon = () => {
-
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -13,9 +13,20 @@ const SignUpCon = () => {
   const [lastName, setLname] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [location, setLocation] = useState(''); // State to hold selected location
 
-  const location = "Thane"
-  const donorType = "Individual"
+  const donorType = "Individual";
+
+  const maharashtraDistricts = [
+    "Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed",
+    "Bhandara", "Buldhana", "Chandrapur", "Dhule", "Gadchiroli",
+    "Gondia", "Hingoli", "Jalgaon", "Jalna", "Kolhapur",
+    "Latur", "Mumbai City", "Mumbai Suburban", "Nagpur", "Nanded",
+    "Nandurbar", "Nashik", "Osmanabad", "Palghar", "Parbhani",
+    "Pune", "Raigad", "Ratnagiri", "Sangli", "Satara",
+    "Sindhudurg", "Solapur", "Thane", "Wardha", "Washim",
+    "Yavatmal"
+  ];
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -31,24 +42,21 @@ const SignUpCon = () => {
       body: JSON.stringify({
         firstName, lastName, email, password, location, donorType
       })
-    })
+    });
 
-    const data = await res.json()
+    const data = await res.json();
     if (res.status === 200) {
-      toast.success("Registered Successfully 💫")
+      toast.success("Registered Successfully 💫");
       navigate("/signin", { replace: true });
+    } else {
+      toast.error("Oops !! Something Went Wrong ");
     }
-    else{
-      toast.error("Oops !! Something Went Wrong ")
-    }
-
     console.log(data);
-
   }
 
   return (
     <div>
-      <div className="flex flex-row flex-wrap ">
+      <div className="flex flex-row flex-wrap">
         <div className="sm:w-1/2 sm:h-[90vh]" style={{ backgroundColor: "#1CB5BD" }}>
           <img
             src={require("../assets/signup.png")}
@@ -68,6 +76,9 @@ const SignUpCon = () => {
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
               <form className="space-y-6" action="#" method="POST">
                 <div className="flex sm:flex flex:nowrap sm:wrap">
+                  {/* First Name and Last Name input fields */}
+                  {/* Email input field */}
+                  {/* Password input field */}
                   <div>
                     <label
                       htmlFor="email"
@@ -171,28 +182,36 @@ const SignUpCon = () => {
                     </div>
                   </div>
                 </div>
+               
                 <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-bold leading-6 text-gray-900"
+                  <label
+                    htmlFor="location"
+                    className="block text-lg font-bold leading-6 text-gray-900"
+                  >
+                    Location
+                  </label>
+                  <div className="mt-2">
+                    <select
+                      id="location"
+                      name="location"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      required
+                      className="block w-full text-lg font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
+                      style={{ borderColor: "#98B3D6" }}
                     >
-                      Location
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="location"
-                        name="location"
-                        type="text"
-                        autoComplete="location"
-                        placeholder="Enter Location"
-                        required
-                        className="block w-full text-sm font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
-                        style={{ borderColor: "#98B3D6" }}
-                      />
-                    </div>
+                      <option value=""   className="text-gray-400">Enter Your Location</option>
+                      {maharashtraDistricts.map((district, index) => (
+                        <option key={index} value={district}>
+                          {district}
+                        </option>
+                      ))}
+                    </select>
                   </div>
-                
+                </div>
+
                 <div className="mt-2">
+                  {/* Checkbox for terms and conditions */}
                   <label className="flex w-full text-xs font-bold  text-gray-500 outline-none">
                     <input type="checkbox" />
                     <h6 className="mx-2">

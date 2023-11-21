@@ -3,3 +3,8 @@
     justify-content: center;
 }
  */
+
+ /* In your CSS file or style tag */
+::placeholder {
+    color: #808080; /* Change to your desired shade of gray */
+  }
