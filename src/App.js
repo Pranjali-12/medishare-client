@@ -7,6 +7,7 @@ import UploadMed from './pages/UploadMed';
 import NgoDetail from './pages/NgoDetail';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MedicineList from './pages/MedicineList';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
      <Route path='/uploadmed' element={<UploadMed/>}></Route>
      <Route path='/ngodetail' element={<NgoDetail/>}></Route>
      <Route path='/searchngo' element={<SearchNgo/>}></Route>
+     <Route path='/medlist' element={<MedicineList/>}></Route>
 
     </Routes>
    </BrowserRouter>
