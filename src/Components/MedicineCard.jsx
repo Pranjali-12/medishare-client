@@ -77,7 +77,7 @@ const MedicineCard = (props) => {
           <div className="mb-4">
             <div className="px-6 py-2">
               <div className="font-bold text-2xl text-[#1CB5BD] mb-2">{props.name}</div>
-              <p className="text-gray-900 text-md mb-2" style={{ minWidth: "200px", maxWidth: "700px" }}>
+              <p className="text-gray-900 text-md mb-2" style={{ minWidth: "200px", maxWidth: "800px" }}>
                 {props.description}
               </p>
               <div>
