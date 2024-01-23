@@ -31,7 +31,7 @@ const SignInLeft = () => {
 
     if (res.status === 200) {
       toast.success('Login Successful !')
-      navigate("/searchngo", { replace: true });
+      navigate("/uploadmed", { replace: true });
     }
     else if(email=="" || password==""){
       toast.error("Plz Enter Credentials !!")
@@ -116,11 +116,11 @@ const SignInLeft = () => {
                     </div>
               </div>
             </div>
-            <div className="text-lg">
+            {/* <div className="text-lg">
                   <a href="#" className="font-semibold hover:text-teal-800 text-teal-600">
                     Forgot password?
                   </a>
-                </div>
+                </div> */}
             <div>
               <button
                 type="submit"
@@ -134,7 +134,7 @@ const SignInLeft = () => {
 
           <p className="mt-2 text-center font-bold py-4 text-sm text-gray-500">
             New member?{' '}
-            <a href="/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" style={{color:"#1CB5BD"}}>
+            <a href="/donor/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" style={{color:"#1CB5BD"}}>
               Sign Up
             </a>
           </p>

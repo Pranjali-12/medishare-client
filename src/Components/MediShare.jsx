@@ -10,7 +10,7 @@ const MediShare = () => {
 
   const Logout=()=>{
     localStorage.clear();
-    navigate("/signin", { replace: true });
+    navigate("/donor/signin", { replace: true });
   }
 
   return (
@@ -23,8 +23,8 @@ const MediShare = () => {
         !authtoken ?
           (
             <div className='px-10 sm:px-40 py-4 sm:py-0'>
-              <Link to={"/signin"} ><button className='text-2xl text-[#1CB5BD] font-medium font-custom tracking-wide'>Login</button></Link>
-              <Link to={"/signup"} ><button className='text-2xl text-[#1CB5BD] font-medium font-custom tracking-wide px-10'>Signup</button></Link>
+              <Link to={"/donor/signin"} ><button className='text-2xl text-[#1CB5BD] font-medium font-custom tracking-wide'>Login</button></Link>
+              <Link to={"/donor/signup"} ><button className='text-2xl text-[#1CB5BD] font-medium font-custom tracking-wide px-10'>Signup</button></Link>
             </div>
           ) :
           (

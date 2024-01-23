@@ -1,14 +1,25 @@
 import React from 'react'
 import '../styles/HomeUpper.css'
+import { useNavigate } from 'react-router'
 
 const HomeUpper = () => {
+  const navigate=useNavigate();
+
+  const get=()=>{
+    navigate('/receiver/signin')
+  }
+
+  const donate=()=>{
+    navigate('/donor/signin')
+  }
+
   return (
     <div style={{ width: '85%', margin: '0 auto' }}>
       <div className='flex flex-wrap'>
         {/* Left */}
         <div className='w-1/2 px-4'>
           <h1 className='text-5xl	 font-extrabold p-8 pt-16 pe-12' style={{ lineHeight: "4.2rem" }}>Healing yourself is connected with <span className='parallelogram m-0 text-5xl' >healing</span> others</h1>
-          <div className='ps-8'>
+          {/* <div className='ps-8'>
             <div className="m-3 w-10/12">
               <div class="relative mb-4 flex  flex-wrap items-stretch border-2  h-12 pl-4 border-solid border-teal-500 rounded-md"
               >
@@ -38,8 +49,12 @@ const HomeUpper = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
 
+          <div>
+            <button onClick={donate} className='bg-[#1CB5BD] text-white font-semibold rounded-md text-xl py-2 px-6 m-2'>Donate Medicine</button>
+            <button onClick={get} className='bg-[#1CB5BD] text-white font-semibold rounded-md text-xl py-2 px-6 m-2'>Get Medicine</button>
+          </div>
         </div>
         {/* Right */}
         <img className="pb-4 pt-4" src={require("../assets/Home_Image.png")} style={{ width: "36rem" }} />
