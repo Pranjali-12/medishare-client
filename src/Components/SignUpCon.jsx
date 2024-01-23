@@ -14,8 +14,12 @@ const SignUpCon = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [location, setLocation] = useState(''); // State to hold selected location
+  const [donorType, setDonorType] = useState('');
+  // const [isChecked, setIsChecked] = useState(false);
 
-  const donorType = "Individual";
+  // const handleCheckboxChange = (e) => {
+  //   setIsChecked(e.target.checked);
+  // };
 
   const maharashtraDistricts = [
     "Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed",
@@ -28,11 +32,21 @@ const SignUpCon = () => {
     "Yavatmal"
   ];
 
+  const donors = ["Individual", "Care Center", "Pharmacist", "Manufacturers", "Wholesalers", "Patent"]
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
   async function register(e) {
+    if(firstName==''||lastName==''||email==''||password==''||location==''||donorType==''){
+      toast.error("Plz Enter valid details");
+      return ;
+    }
+    // if(isChecked===true){
+    //   toast.error("Please check the checkbox");
+    //   return ;
+    // }
     e.preventDefault();
     const res = await fetch("http://localhost:2000/donor/signup", {
       method: 'POST',
@@ -47,8 +61,12 @@ const SignUpCon = () => {
     const data = await res.json();
     if (res.status === 200) {
       toast.success("Registered Successfully 💫");
-      navigate("/signin", { replace: true });
-    } else {
+      navigate("/donor/signin", { replace: true });
+    } 
+    else if (res.status === 400) {
+      toast.error("User already registered");
+    } 
+    else {
       toast.error("Oops !! Something Went Wrong ");
     }
     console.log(data);
@@ -161,7 +179,7 @@ const SignUpCon = () => {
                       <input
                         id="password"
                         name="password"
-                        type={showPassword ? "text" : "password"} // Toggle between "text" and "password"
+                        type={showPassword ? "text" : "password"}
                         autoComplete="current-password"
                         placeholder="Enter Password"
                         required
@@ -182,7 +200,7 @@ const SignUpCon = () => {
                     </div>
                   </div>
                 </div>
-               
+
                 <div>
                   <label
                     htmlFor="location"
@@ -200,7 +218,7 @@ const SignUpCon = () => {
                       className="block w-full text-lg font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
                       style={{ borderColor: "#98B3D6" }}
                     >
-                      <option value=""   className="text-gray-400">Enter Your Location</option>
+                      <option value="" className="text-gray-400">Enter Your Location</option>
                       {maharashtraDistricts.map((district, index) => (
                         <option key={index} value={district}>
                           {district}
@@ -210,17 +228,45 @@ const SignUpCon = () => {
                   </div>
                 </div>
 
-                <div className="mt-2">
-                  {/* Checkbox for terms and conditions */}
+                <div>
+                  <label
+                    htmlFor="location"
+                    className="block text-lg font-bold leading-6 text-gray-900"
+                  >
+                    Donor Type
+                  </label>
+                  <div className="mt-2">
+                    <select
+                      id="location"
+                      name="location"
+                      value={donorType}
+                      onChange={(e) => setDonorType(e.target.value)}
+                      required
+                      className="block w-full text-lg font-semibold border-b py-1.5 text-gray-900 placeholder:text-gray-400 outline-none"
+                      style={{ borderColor: "#98B3D6" }}
+                    >
+                      <option value="" className="text-gray-400">Select donor type</option>
+                      {donors.map((donor, index) => (
+                        <option key={index} value={donor}>
+                          {donor}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* <div className="mt-2">
                   <label className="flex w-full text-xs font-bold  text-gray-500 outline-none">
-                    <input type="checkbox" />
+                    <input type="checkbox"
+                      checked={isChecked}
+                      onChange={handleCheckboxChange} />
                     <h6 className="mx-2">
                       {" "}
                       By signing up, you agree to our Terms & Conditions
                     </h6>
                   </label>
-                </div>
-                
+                </div> */}
+
                 <div>
                   <button
                     type="submit"
@@ -236,7 +282,7 @@ const SignUpCon = () => {
               <p className="mt-2 text-center font-bold py-4 text-sm text-gray-500">
                 Already a member?{" "}
                 <a
-                  href="/signin"
+                  href="/donor/signin"
                   className="font-semibold leading-6  cursor-pointer"
                   style={{ color: "#1CB5BD" }}
                 >
