@@ -38,7 +38,7 @@ const ReceiverSignInLeft = () => {
 
     if (res.status === 200) {
       toast.success('Login Successful !')
-      navigate("/uploadmed", { replace: true });
+      navigate("/receiver/recmedlist", { replace: true });
     }
     else if(email=="" || password==""){
       toast.error("Plz Enter Credentials !!")

@@ -184,10 +184,10 @@ const SingleSingleMed = () => {
     <div className='mt-10'>
       {product.approval ? (
         <SingleMedicine
-          id={product.id}
+          id={product._id}
           name={product.name}
           description={product.illness}
-          ownerName={product.owner}
+          ownerName={product.donor.firstName+" "+product.donor.lastName}
           mfDate={product.mf_date}
           expiryDate={product.exp_date}
           quantity={product.quantity}

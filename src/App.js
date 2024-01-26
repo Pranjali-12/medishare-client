@@ -29,8 +29,8 @@ const App = () => {
      <Route path='/ngodetail' element={<NgoDetail/>}></Route>
      <Route path='/searchngo' element={<SearchNgo/>}></Route>
      <Route path='/medlist' element={<MedicineList/>}></Route>
-     <Route path='/reciever/recmedlist' element={<RecMedList/>}></Route>
-     <Route path="reciever/recmedlist/:id" element={<SingleMed/>}></Route>
+     <Route path='/receiver/recmedlist' element={<RecMedList/>}></Route>
+     <Route path="/receiver/recmedlist/:id" element={<SingleMed/>}></Route>
      <Route path='/reciever/allreqmed' element={<AllReqMed/>}></Route>
 
     

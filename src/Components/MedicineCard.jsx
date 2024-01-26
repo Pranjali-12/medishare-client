@@ -157,7 +157,7 @@ const MedicineCard = (props) => {
     // Execute any action you want when the card is clicked
     // For example, you can navigate to a specific page
     console.log('Card clicked!');
-    navigate(`/reciever/recmedlist/${props.id}`)
+    navigate(`/receiver/recmedlist/${props.id}`)
   };
 
   return (
