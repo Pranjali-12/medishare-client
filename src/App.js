@@ -10,6 +10,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MedicineList from './pages/MedicineList';
 import ReceiverSignup from './pages/ReceiverSignup';
 import ReceiverSignIn from './pages/ReceiverSignIn';
+import AdminApproval from './pages/AdminApproval';
+import Admin from './pages/Admin';
 
 
 const App = () => {
@@ -27,6 +29,9 @@ const App = () => {
 
      <Route path='/receiver/signup' element={<ReceiverSignup/>}></Route>
      <Route path='/receiver/signin' element={<ReceiverSignIn/>}></Route>
+
+     <Route path='/admin' element={<Admin/>}></Route>
+     <Route path='/admin/medicine-approval' element={<AdminApproval/>}></Route>
 
     </Routes>
    </BrowserRouter>

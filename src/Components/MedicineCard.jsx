@@ -71,13 +71,19 @@ import moment from 'moment'
 
 const MedicineCard = (props) => {
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    const date = new Date(dateString);
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1; 
+    const year = date.getUTCFullYear();
+
+    const formattedDay = day < 10 ? `0${day}` : `${day}`;
+    const formattedMonth = month < 10 ? `0${month}` : `${month}`;
+
+    return `${formattedDay}/${formattedMonth}/${year}`;
   };
 
   const formattedManufacturedDate = formatDate(props.mfDate);
   const formattedExpiryDate = formatDate(props.expiryDate);
-
   console.log(props)
   return (
     <div className="flex flex-wrap w-[90%] gap-8 sm:mx-28 my-3 justify-center" >
