@@ -8,9 +8,8 @@ import NgoDetail from './pages/NgoDetail';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MedicineList from './pages/MedicineList';
-import RecMedList from './pages/RecMedList';
-import SingleMed from './pages/SingleMed';
-import AllReqMed from './pages/AllReqMed';
+import ReceiverSignup from './pages/ReceiverSignup';
+import ReceiverSignIn from './pages/ReceiverSignIn';
 
 
 const App = () => {
@@ -25,11 +24,7 @@ const App = () => {
      <Route path='/ngodetail' element={<NgoDetail/>}></Route>
      <Route path='/searchngo' element={<SearchNgo/>}></Route>
      <Route path='/medlist' element={<MedicineList/>}></Route>
-     <Route path='/reciever/recmedlist' element={<RecMedList/>}></Route>
-     <Route path="reciever/recmedlist/:id" element={<SingleMed/>}></Route>
-     <Route path='/reciever/allreqmed' element={<AllReqMed/>}></Route>
 
-    
     </Routes>
    </BrowserRouter>
   )
