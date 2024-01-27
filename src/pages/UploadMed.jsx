@@ -73,14 +73,13 @@ function MedicineUpload() {
   };
 
   return (
-    <div className='h-screen'>
-        <MediShare />
+    <div>
 
       <div className="flex flex-wrap overflow-hidden">
 
-        <div className="w-full sm:w-1/2 px-4 sm:px-24 py-10 flex flex-col justify-center">
-          <div className="text-4xl my-5 font-bold">Upload Medicine</div>
-          <form className="my-10" onSubmit={Upload}>
+        <div className="w-full sm:w-1/2 px-4 sm:px-24 flex flex-col justify-center">
+          <div className="text-4xl font-bold">Upload Medicine</div>
+          <form className="my-6" onSubmit={Upload}>
 
             <div className="border-b-2 border-[#98B3D6] mb-2 sm:mb-10">
               <div className="text-[#262C5B] my-3 lg:my-1 font-bold">Medicine Name</div>

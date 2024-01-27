@@ -1,10 +1,10 @@
 import React from 'react';
 import moment from 'moment';
  
-  import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
-const MedicineCard = (props) => {
+const RecMedicineCard = (props) => {
   const navigate = useNavigate();
 
   const formatDate = (dateString) => {
@@ -22,10 +22,13 @@ const MedicineCard = (props) => {
   const formattedManufacturedDate = formatDate(props.mfDate);
   const formattedExpiryDate = formatDate(props.expiryDate);
 
-
+  const handleClick = () => {
+    console.log('Card clicked!');
+    navigate(`/receiver/recmedlist/${props.id}`)
+  };
 
   return (
-    <div className="flex flex-wrap w-[90%] gap-8 sm:mx-28 my-3 justify-center">
+    <div className="flex flex-wrap w-[90%] gap-8 sm:mx-28 my-3 justify-center hover:cursor-pointer" onClick={handleClick}>
       <div className="max-w-sm w-full lg:max-w-full lg:flex justify-center">
         <div className="bg-white border-2 border-[#aeeff3] rounded lg:rounded p-4 flex flex-col justify-between leading-normal sm:w-[90%]" style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px" }}>
           <div className="mb-4">
@@ -68,4 +71,4 @@ const MedicineCard = (props) => {
   );
 };
 
-export default MedicineCard;
+export default RecMedicineCard;

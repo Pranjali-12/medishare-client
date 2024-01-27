@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import MedicineCard from '../Components/MedicineCard';
+import RecMedicineCard from '../Components/RecMedicineCard';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import MediShare from '../Components/MediShare';
@@ -26,7 +26,6 @@ const RecMedList = () => {
 
   return (
     <div className='h-screen'>
-      <MediShare/>
       <div className='text-4xl px-4 sm:px-40 py-2 sm:py-10 mt-auto font-custom font-semibold'>
         Medicine List
       </div>
@@ -54,7 +53,7 @@ const RecMedList = () => {
                 med.illness.toLowerCase().includes(searchQuery.toLowerCase())
               )
               .map((med) => (
-                <MedicineCard
+                <RecMedicineCard
                   key={med.id}
                   id={med.id}
                   name={med.name}

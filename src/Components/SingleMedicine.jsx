@@ -47,14 +47,17 @@ const SingleMedicine = (props) => {
           })
         })
         console.log(res);
-        navigate('/receiver/allreqmed');
+        navigate('/receiver');
       }
     }
 
   };
-
+  const handleClick=()=>{
+    navigate('/receiver')
+  }
   return (
     <>
+    <button onClick={handleClick} className='bg-[#1CB5BD] text-white font-semibold rounded-md text-xl py-2 px-6 ms-8'>Back</button>
       <MediShare />
       <div className='flex justify-center mt-5'>
         <div className="flex flex-wrap sm-w-[50%] gap-8 sm:mx-28 my-3 justify-center">

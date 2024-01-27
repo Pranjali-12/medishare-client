@@ -15,6 +15,8 @@ import ReceiverSignup from './pages/ReceiverSignup';
 import ReceiverSignIn from './pages/ReceiverSignIn';
 import AdminApproval from './pages/AdminApproval';
 import Admin from './pages/Admin';
+import Donor from './pages/Donor';
+import Receiver from './pages/Receiver';
 
 
 const App = () => {
@@ -23,17 +25,18 @@ const App = () => {
     <Routes>
     
      <Route path='/' element={<Home/>}></Route>
+     <Route path='/donor' element={<Donor/>}></Route>
      <Route path='/donor/signin' element={<SignIn/>}></Route>
      <Route path='/donor/signup' element={<SignUp/>}></Route>
-     <Route path='/uploadmed' element={<UploadMed/>}></Route>
+     <Route path='donor/uploadmed' element={<UploadMed/>}></Route>
      <Route path='/ngodetail' element={<NgoDetail/>}></Route>
      <Route path='/searchngo' element={<SearchNgo/>}></Route>
-     <Route path='/medlist' element={<MedicineList/>}></Route>
+     <Route path='donor/medlist' element={<MedicineList/>}></Route>
+
+     <Route path='/receiver' element={<Receiver/>}></Route>
      <Route path='/receiver/recmedlist' element={<RecMedList/>}></Route>
      <Route path="/receiver/recmedlist/:id" element={<SingleMed/>}></Route>
-     <Route path='/reciever/allreqmed' element={<AllReqMed/>}></Route>
-
-    
+     <Route path='/receiver/allreqmed' element={<AllReqMed/>}></Route>
      <Route path='/receiver/signup' element={<ReceiverSignup/>}></Route>
      <Route path='/receiver/signin' element={<ReceiverSignIn/>}></Route>
 

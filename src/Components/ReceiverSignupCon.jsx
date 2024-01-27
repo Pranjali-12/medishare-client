@@ -92,7 +92,7 @@ const ReceiverSignupCon = () => {
                         htmlFor="email"
                         className="block text-lg font-bold leading-6 text-gray-900"
                       >
-                        First Name
+                        Name
                       </label>
                       <div className="mt-2 me-5">
                         <input
