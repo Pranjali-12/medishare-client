@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import MediShare from '../Components/MediShare';
+import Scanner from '../Components/Scanner';
 import addDays from 'date-fns/addDays';
 import subDays from 'date-fns/subDays';
 import { useNavigate } from 'react-router-dom';
@@ -14,11 +14,26 @@ function MedicineUpload() {
   const minDate = addDays(new Date(), 1);
   const maxDate = subDays(new Date(), 1);
 
+  const [scanResultt, setScanResult] = useState(null);
+  const scanResult = JSON.parse(scanResultt);
+
+  useEffect(() => {
+    if (scanResult) {
+      setMedicineName(scanResult.name || '');
+      setMedicineDes(scanResult.description || '');
+      setMedicineQuantity(scanResult.quantity || '');
+      setManufactureDate(scanResult.mfd ? new Date(scanResult.mfd) : null);
+      setExpiryDate(scanResult.exp ? new Date(scanResult.exp) : null);
+    }
+  }, [scanResult]);
+
+  console.log(scanResult?.name);
+
   const [medicineName, setMedicineName] = useState('');
   const [medicineDes, setMedicineDes] = useState('');
   const [medicineQuantity, setMedicineQuantity] = useState('');
-  const [manufactureDate, setManufactureDate] = useState(null); 
-  const [expiryDate, setExpiryDate] = useState(null); 
+  const [manufactureDate, setManufactureDate] = useState(null);
+  const [expiryDate, setExpiryDate] = useState(null);
 
   const convertToISOString = (dateString) => {
     const formattedDate = new Date(dateString);
@@ -29,19 +44,20 @@ function MedicineUpload() {
   const exp_date = convertToISOString(expiryDate);
 
   const token = JSON.parse(atob(localStorage.getItem('authtoken').split('.')[1]));
-  const id=token._id
+  const id = token._id
   console.log(token._id);
 
 
-  async function Upload (e){
+
+  async function Upload(e) {
     e.preventDefault();
     console.log('Medicine Name:', medicineName);
-    console.log('Description: ',medicineDes);
-    console.log('Quantity: ',medicineQuantity)
+    console.log('Description: ', medicineDes);
+    console.log('Quantity: ', medicineQuantity)
     console.log('Manufacture Date:', mf_date);
     console.log('Expiry Date:', exp_date);
 
-     if (medicineName === ''||medicineDes==='' || medicineQuantity===''|| mf_date===null || exp_date===null) {
+    if (medicineName === '' || medicineDes === '' || medicineQuantity === '' || mf_date === null || exp_date === null) {
       alert('Please fill out the Medicine Name field');
       return;
     }
@@ -52,10 +68,10 @@ function MedicineUpload() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        donor:id,
-        name:medicineName,
-        illness:medicineDes,
-        quantity:medicineQuantity,
+        donor: id,
+        name: medicineName,
+        illness: medicineDes,
+        quantity: medicineQuantity,
         mf_date,
         exp_date
       })
@@ -64,7 +80,7 @@ function MedicineUpload() {
     const data = await res.json();
     if (res.status === 200) {
       toast.success("Medicine Uploaded Successfully");
-      navigate("/medlist", { replace: true });
+      navigate("/donor/medlist", { replace: true });
     } else {
       toast.error("Oops !! Something Went Wrong ");
     }
@@ -79,6 +95,8 @@ function MedicineUpload() {
 
         <div className="w-full sm:w-1/2 px-4 sm:px-24 flex flex-col justify-center">
           <div className="text-4xl font-bold">Upload Medicine</div>
+
+          <div className='mt-4'><Scanner onScan={setScanResult} /></div>
           <form className="my-6" onSubmit={Upload}>
 
             <div className="border-b-2 border-[#98B3D6] mb-2 sm:mb-10">
@@ -90,7 +108,7 @@ function MedicineUpload() {
                   onChange={(e) => setMedicineName(e.target.value)}
                   required
                   placeholder='Enter Medicine Name'
-
+                  disabled
                 />
               </div>
             </div>
@@ -104,7 +122,7 @@ function MedicineUpload() {
                   onChange={(e) => setMedicineDes(e.target.value)}
                   required
                   placeholder='Enter Medicine Description'
-
+                  disabled
                 />
               </div>
             </div>
@@ -118,6 +136,7 @@ function MedicineUpload() {
                   onChange={(e) => setMedicineQuantity(e.target.value)}
                   required
                   placeholder='Enter Medicine Name'
+                  disabled
                 />
               </div>
             </div>
@@ -131,6 +150,7 @@ function MedicineUpload() {
                   required
                   placeholderText='Select'
                   maxDate={maxDate}
+                  disabled
                 />
               </div>
             </div>
@@ -144,6 +164,7 @@ function MedicineUpload() {
                   required
                   placeholderText='Select'
                   minDate={minDate}
+                  disabled
                 />
               </div>
             </div>

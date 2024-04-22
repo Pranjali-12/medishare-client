@@ -7,7 +7,7 @@ import MediShare from '../Components/MediShare'
 const Home = () => {
   return (
     <div>
-      <MediShare/>
+      {/* <MediShare/> */}
       <HomeUpper/>
       <ServiceBox/>
     </div>

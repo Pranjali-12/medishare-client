@@ -141,7 +141,7 @@ const ReceiverSignInLeft = () => {
 
           <p className="mt-2 text-center font-bold py-4 text-sm text-gray-500">
             New member?{' '}
-            <a href="/donor/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" style={{color:"#1CB5BD"}}>
+            <a href="/receiver/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500" style={{color:"#1CB5BD"}}>
               Sign Up
             </a>
           </p>

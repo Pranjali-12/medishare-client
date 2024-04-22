@@ -24,7 +24,7 @@ const Modal = ({ handleClose }) => {
             </svg>
           </button>
         </div>
-        <h2 className="text-2xl font-semibold mb-4">Medicine Not Available</h2>
+        <h2 className="text-2xl font-semibold mb-4">Medicine Not Approved Yet</h2>
         <p className="text-gray-700 text-lg ms-16">Please Try Again Later.</p>
         <button onClick={handleCancel} className="bg-red-500 ms-28 hover:bg-red-600 text-white flex justify-center font-semibold py-2 px-4 rounded mt-4">Close</button>
       </div>
