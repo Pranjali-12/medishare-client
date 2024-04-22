@@ -5,7 +5,7 @@ import AcceptComponent from '../Components/AcceptComponent';
 const AdminAccept = () => {
   const [req,setReq]=useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:2000/admin/getallreq`)
+    axios.get(`https://medishare-server-3.onrender.com/admin/getallreq`)
       .then(res => {
         console.log(res.data.reqs)
         setReq(res.data.reqs);

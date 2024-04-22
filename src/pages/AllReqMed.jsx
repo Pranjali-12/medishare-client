@@ -10,7 +10,7 @@ const AllReqMed = () => {
   console.log(id)
 
   useEffect(() => {
-    axios.get(`http://localhost:2000/receiver/getallreq/${id}`)
+    axios.get(`https://medishare-server-3.onrender.com/receiver/getallreq/${id}`)
       .then(res => {
         console.log(res.data.requestList);
         setReq(res.data.requestList);

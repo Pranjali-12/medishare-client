@@ -24,7 +24,7 @@ const ReceiverSignInLeft = () => {
       navigate("/admin", { replace: true });
       return ;
     }
-    const res = await fetch("http://localhost:2000/receiver/login", {
+    const res = await fetch("https://medishare-server-3.onrender.com/receiver/login", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

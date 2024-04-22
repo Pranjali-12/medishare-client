@@ -22,7 +22,7 @@ const SignInLeft = () => {
       navigate("/admin", { replace: true });
       return ;
     }
-    const res = await fetch("http://localhost:2000/donor/login", {
+    const res = await fetch("https://medishare-server-3.onrender.com/donor/login", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -24,7 +24,7 @@ const ApprovalComponent = (props) => {
 
     const handleCheckboxChange = () => {
         setStatus((prevStatus) => !prevStatus);
-        axios.post(`http://localhost:2000/admin/approve?id=${props.id}`)
+        axios.post(`https://medishare-server-3.onrender.com/admin/approve?id=${props.id}`)
             .then(res => {
                 console.log(res.data)
             }).catch(error => {

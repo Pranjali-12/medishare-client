@@ -62,7 +62,7 @@ function MedicineUpload() {
       return;
     }
 
-    const res = await fetch("http://localhost:2000/medicine/addmed", {
+    const res = await fetch("https://medishare-server-3.onrender.com/medicine/addmed", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -5,7 +5,7 @@ import axios from 'axios';
 const CountDonor = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:2000/admin/countdonor')
+        axios.get('https://medishare-server-3.onrender.com/admin/countdonor')
             .then(res => {
                 // console.log(res.data.result);
                 setData(res.data.result);

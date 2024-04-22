@@ -12,7 +12,7 @@ const MedicineList = () => {
   const [meds, setMeds] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:2000/medicine/getallmeds`)
+    axios.get(`https://medishare-server-3.onrender.com/medicine/getallmeds`)
       .then(res => {
         console.log(res.data)
         setMeds(res.data);

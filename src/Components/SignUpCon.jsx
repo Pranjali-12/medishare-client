@@ -48,7 +48,7 @@ const SignUpCon = () => {
     //   return ;
     // }
     e.preventDefault();
-    const res = await fetch("http://localhost:2000/donor/signup", {
+    const res = await fetch("https://medishare-server-3.onrender.com/donor/signup", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

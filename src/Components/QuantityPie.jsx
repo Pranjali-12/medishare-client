@@ -14,7 +14,7 @@ const QuantityPie = () => {
     const transformedData = data.map(item => ({ name: item.name, value: item.quantity }));
 
     useEffect(() => {
-        axios.get('http://localhost:2000/admin/availablemed')
+        axios.get('https://medishare-server-3.onrender.com/admin/availablemed')
             .then(res => {
                 // console.log(res.data.result);
                 setData(res.data.pieChartData);

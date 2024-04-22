@@ -24,7 +24,7 @@ const AcceptComponent = (props) => {
     const formattedExpiryDate = formatDate(props.expiryDate);
 
     const handleAccept = () => {
-        axios.post(`http://localhost:2000/admin/accept?id=${props.id}`)
+        axios.post(`https://medishare-server-3.onrender.com/admin/accept?id=${props.id}`)
             .then(res => {
                 console.log(res.data)
                 window.location.reload()
@@ -34,7 +34,7 @@ const AcceptComponent = (props) => {
     };
 
     const handleReject = () => {
-        axios.post(`http://localhost:2000/admin/reject?id=${props.id}`)
+        axios.post(`https://medishare-server-3.onrender.com/admin/reject?id=${props.id}`)
             .then(res => {
                 console.log(res.data)
                 window.location.reload()

@@ -13,7 +13,7 @@
 
 //   useEffect(() => {
 //     // Fetch product data using the ID
-//     axios.get(`http://localhost:2000/medicine/getmed/${id}`)
+//     axios.get(`https://medishare-server-3.onrender.com/medicine/getmed/${id}`)
 //       .then(response => {
 //         setProduct(response.data);
 //       })
@@ -66,7 +66,7 @@
 
 //   useEffect(() => {
 //     // Fetch product data using the ID
-//     axios.get(`http://localhost:2000/medicine/getmed/${id}`)
+//     axios.get(`https://medishare-server-3.onrender.com/medicine/getmed/${id}`)
 //       .then(response => {
 //         setProduct(response.data);
 //       })
@@ -113,7 +113,7 @@
 
 //   useEffect(() => {
 //     // Fetch product data using the ID
-//     axios.get(`http://localhost:2000/medicine/getmed/${id}`)
+//     axios.get(`https://medishare-server-3.onrender.com/medicine/getmed/${id}`)
 //       .then(response => {
 //         setProduct(response.data);
 //       })
@@ -168,7 +168,7 @@ const SingleSingleMed = () => {
 
   useEffect(() => {
     // Fetch product data using the ID
-    axios.get(`http://localhost:2000/medicine/getmed/${id}`)
+    axios.get(`https://medishare-server-3.onrender.com/medicine/getmed/${id}`)
       .then(response => {
         setProduct(response.data);
       })

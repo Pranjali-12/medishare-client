@@ -9,7 +9,7 @@ const SearchNgo = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        axios.get(`http://localhost:2000/donor/getAllReceivers`)
+        axios.get(`https://medishare-server-3.onrender.com/donor/getAllReceivers`)
             .then(res => {
                 console.log(res.data.receivers);
                 setReceiver(res.data.receivers);

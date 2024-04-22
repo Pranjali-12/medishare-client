@@ -38,7 +38,7 @@ const ReceiverSignupCon = () => {
       }
 
       e.preventDefault();
-      const res = await fetch("http://localhost:2000/receiver/signup", {
+      const res = await fetch("https://medishare-server-3.onrender.com/receiver/signup", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

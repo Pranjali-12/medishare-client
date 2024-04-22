@@ -37,7 +37,7 @@ const SingleMedicine = (props) => {
         setErrorMessage(`Enter a quantity`);
       }
       else {
-        const res = fetch(`http://localhost:2000/medicine/requestmed?id=${props.id}`, {
+        const res = fetch(`https://medishare-server-3.onrender.com/medicine/requestmed?id=${props.id}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
