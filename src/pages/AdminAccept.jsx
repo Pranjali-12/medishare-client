@@ -9,7 +9,7 @@ const AdminAccept = () => {
       .then(res => {
         console.log(res.data.reqs)
         setReq(res.data.reqs);
-
+        console.log("data transferred!")
       }).catch(error => {
         console.log(error);
       })
